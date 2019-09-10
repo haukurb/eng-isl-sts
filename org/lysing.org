@@ -1,0 +1,94 @@
+#+TITLE: *Verkefnalýsing*
+#+SUBTITLE: /Verkefni í máltækni, TÖL019F/
+#+AUTHOR: Haukur Barri Símonarson
+#+OPTIONS: toc:nil
+#+LANGUAGE: is
+
+# #+LATEX_COMPILER: xelatex
+#+LaTeX_CLASS: article
+#+LATEX_HEADER: \usepackage[icelandic]{babel}
+#+LATEX_HEADER: \usepackage[bottom=1.2in, top=1.2in, left=1.4in, right=1.4in]{geometry}
+# #+LATEX_HEADER: \renewcommand\thesubsubsection{\thesubsection\arabic{thesubsubsection}}
+
+# # required for icelandic in xelatex
+# #+LATEX_HEADER: \usepackage{fontspec}
+
+# For more enumeration labels
+#+LATEX_HEADER: \usepackage[shortlabels]{enumitem}
+
+# More text colors
+#+LATEX_HEADER: \usepackage{xcolor}
+
+# For IPA symbols
+
+#+LATEX_HEADER: \newcommand{\h}{\textsuperscript{h}}
+
+#+LATEX_HEADER: \usepackage{bookmark}
+
+# Explicit correction
+#+LATEX_HEADER: \newcommand{\correct}[1]{\textcolor{red}{\underline{#1}}}
+
+# For Icelandic caption titles
+#+LATEX_HEADER: \renewcommand{\figurename}{Mynd}
+#+LATEX_HEADER: \renewcommand{\tablename}{Tafla}
+
+# # For tree diagrams and enhanced tree diagrams
+
+# For tikz dependency graphs
+
+# Allows numberless captions like caption*
+#+LATEX_HEADER: \usepackage{caption}
+
+#+LATEX_HEADER: \renewcommand\eminnershape{\bfseries}
+
+# Semantic Textual Similarity
+# Cross-lingual, Multi-lingual
+# Sentence Alignment
+# Translation Quality Assessment
+# Low computational resources
+# Representation Learning
+# Machine Translation
+# Knowledge distillation
+* Inngangur
+** Samröðun málsgreina
+   Grunntól við sköpun þjálfunargagna fyrir vélþýðingar er svokallað
+   samröðunartól, sem reynir að para saman málsgreinar tveggja texta þar sem
+   annar þeirra er þýðing hins. Ein fyrsta tilraunin að slíku er
+   Church-Gale reikniritið\nbsp{}cite:galeProgramAligningSentences1993,
+   en það notar aðeins lengd málsgreina. Hægt er að nýta orðabækur til að efla
+   samröðunargetu eða þá jafnvel að smíða orðabókina jafnóðum samhliða
+   samröðuninni eins og gert er í reikniriti
+   Chens\nbsp{}cite:chenAligningSentencesBilingual1993.
+   Betri og dýrari lausnir geta falist í því 
+   að nýta vélþýðingarlíkan með því að reikna hlutfallsleg þýðingarlíkindi
+   tilteknar markmálsgreinar miðað við sennilegasta strenginn sem
+   vélþýðingarlíkanið spáir. Ókosturinn er hins vegar sá að framkvæma þarf
+   afkóðunarskrefið í vélþýðingunni fyrir sérhvern samanburð sem er gjarnan mjög
+   tímafrekt.   
+** Merkingarlíkni
+   Mikilvæg þraut í málvinnslu, merkingarlíkni (e. semantic textual similarity),
+   felst í því að bera saman tvær málsgreinar og álykta 
+   hvort þær beri sömu eða líka merkingu. Þrautina má útvíkka þvert yfir tungumál
+   og er þá orðin að merkingarlegum mælikvarða á þýðingargæði og hefur þá einnig
+   mikla spágetu fyrir samröðunartól. Sum líkön fyrir merkingarlíkni varpa textarunu
+   í vigur, þar sem líknina má reikna sem kósínuslíkni vigranna, sem er fyrst og
+   fremst innfeldi. Því má varpa sérhverri málsgrein einu sinni í vigur með
+   tiltölulega dýrum hætti en framkvæma marga ódýra samanburði á hraðvirkan máta.
+   Slík nálgun gefur líka kost á samröðun milli sambærilegra málheilda (e.
+   comparable corpora) þar sem engin þýðing hefur átt sér stað.
+* Tillaga
+  Nýta Transformer greypingarlíkanið cite:vaswaniAttentionAllYou2017 fyrir
+  einmála íslensku og einmála ensku með hliðstæðu markfalli og notað er fyrir
+  Quick-Thought\nbsp{}cite:logeswaranEfficientFrameworkLearning2018, sem er ódýrari
+  nálgun á Skip-Thought\nbsp{}cite:kirosSkipThoughtVectors2015 markmiðinu.
+  Nýttur verður sá samhliða texti sem til er fyrir íslensku og ensku, ásamt
+  vélþýddum texta, þar sem málsgrein er nágranni venjulegra nágranna sinna en
+  einnig þýðingu sinnar (og nágrönnum þýðingarinnar).
+  Niðurstaðan ætti þá að svipa til cite:cerUniversalSentenceEncoder2018 nema með
+  einfaldari og ódýrari merki, ásamt því að vera tvímála.
+
+  Samanburður ýmissa
+  setningargreypinga hefur verið framkvæmdur af cite:peroneEvaluationSentenceEmbeddings2018.
+
+  bibliographystyle:unsrt
+  bibliography:~/Documents/bibliography/references.bib

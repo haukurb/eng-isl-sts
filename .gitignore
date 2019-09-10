@@ -1,0 +1,6 @@
+*.bbl
+*.tex
+*.pdf
+auto/
+_minted*
+data/
