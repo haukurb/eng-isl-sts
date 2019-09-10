@@ -59,20 +59,19 @@
    samröðunargetu eða þá jafnvel að smíða orðabókina jafnóðum samhliða
    samröðuninni eins og gert er í reikniriti
    Chens\nbsp{}cite:chenAligningSentencesBilingual1993.
-   Betri og dýrari lausnir geta falist í því 
-   að nýta vélþýðingarlíkan með því að reikna hlutfallsleg þýðingarlíkindi
-   tilteknar markmálsgreinar miðað við sennilegasta strenginn sem
-   vélþýðingarlíkanið spáir. Ókosturinn er hins vegar sá að framkvæma þarf
+   Nákvæmari, og jafnframt dýrari, lausnir geta falist meðal annars í því
+   að nýta vélræn þýðingarlíkön til að veita þýðingarlíkindi.
+   Ókosturinn er hins vegar sá að framkvæma þarf
    afkóðunarskrefið í vélþýðingunni fyrir sérhvern samanburð sem er gjarnan mjög
    tímafrekt.   
 ** Merkingarlíkni
-   Mikilvæg þraut í málvinnslu, merkingarlíkni (e. semantic textual similarity),
+   Mikilvægt verk í málvinnslu, merkingarlíkni (e. semantic textual similarity),
    felst í því að bera saman tvær málsgreinar og álykta 
-   hvort þær beri sömu eða líka merkingu. Þrautina má útvíkka þvert yfir tungumál
+   hvort þær beri sömu eða líka merkingu. Verkið má útvíkka þvert yfir tungumál
    og er þá orðin að merkingarlegum mælikvarða á þýðingargæði og hefur þá einnig
    mikla spágetu fyrir samröðunartól. Sum líkön fyrir merkingarlíkni varpa textarunu
-   í vigur, þar sem líknina má reikna sem kósínuslíkni vigranna, sem er fyrst og
-   fremst innfeldi. Því má varpa sérhverri málsgrein einu sinni í vigur með
+   í vigur þar sem líknin er einfaldlega hornið á milli vigranna tveggja.
+   Því má varpa sérhverri málsgrein einu sinni í vigur með
    tiltölulega dýrum hætti en framkvæma marga ódýra samanburði á hraðvirkan máta.
    Slík nálgun gefur líka kost á samröðun milli sambærilegra málheilda (e.
    comparable corpora) þar sem engin þýðing hefur átt sér stað.
@@ -89,6 +88,29 @@
 
   Samanburður ýmissa
   setningargreypinga hefur verið framkvæmdur af cite:peroneEvaluationSentenceEmbeddings2018.
-
-  bibliographystyle:unsrt
-  bibliography:~/Documents/bibliography/references.bib
+* Mat á niðurstöðum
+** Þýðingargæði
+   Líkanið verður sannprófað yfir tvímála gögn sem haldin verða frá
+   vélþýðingarlíkaninu á þjálfunartíma þar sem vélþýðingarlíkanið verður nýtt sem grunnmat á þýðingargæði.
+** Merkingarlíkni
+   Mat á niðurstöðum fyrir merkingarlíkni verður metið einmála fyrir ensku með
+   Sem-Eval verkinu cite:cerSemEval2017TaskSemantic2017, og það borið saman við
+   fyrri niðurstöður.
+   Vegna gagnaþurrðar verður ekki hægt að framkvæma slíkan samanburð fyrir
+   íslensku beint, heldur verður hann nálgaður með því að þýða Sem-Eval
+   gögnin vélrænt og reikna íslenska merkingarlíkni á þeim.
+* Verkþættir
+  - Undirbúningur gagna
+    + Einmála :: Risamálheildin, Toronto Book Corpus
+    + Tvímála :: OpenSubtitles skjátextar, EMEA lyfjaseðlar, biblían,
+         gögn frá utanríkismálaráðuneytinu.
+  - Þjálfun vélþýðingarlíkans
+  - Forritun Quick-Thought líkans, byggt á Tensor2Tensor cite:vaswaniTensor2TensorNeuralMachine2018
+  - Þjálfun líkans fyrir einmála merkingarlíkni
+  - Þjálfun líkans fyrir tvímála merkingarlíkni
+  - Þýðing SemEval gagna
+  - Samanburður á SemEval og þýðingargögnum.
+  - Skýrsla
+  
+bibliographystyle:unsrt
+bibliography:~/Documents/bibliography/references.bib
